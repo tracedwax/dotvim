@@ -17,6 +17,9 @@ call pathogen#runtime_append_all_bundles()
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
+" Map , to leader
+let mapleader = ","
+
 " Show invisible characters
 set list
 " Shortcut to toggle `set list`
