@@ -1,4 +1,7 @@
-set guifont=Monaco:h16
+" set guifont=Monaco:h16
+set guifont=Menlo:h16
+" http://www.google.com/webfonts/family?family=Lekton&subset=latin
+" set guifont=Lekton:h18
 
 set number
 set go-=T
@@ -43,7 +46,10 @@ set autoindent
 set smarttab
 set expandtab
 
-:colorscheme vividchalk
+" :colorscheme vividchalk
+set background=dark
+:colorscheme solarized
+" :colorscheme mac_classic
 
 " window splitting mappings
 nmap <leader>v :vsplit<CR> <C-w><C-w>
@@ -70,7 +76,7 @@ set grepprg=grep\ -nH\ $*
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
-" TIP: if you write your \label's as \label{fig:something}, then if you
+" TIP: if you write your \labels as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
 set iskeyword+=:
