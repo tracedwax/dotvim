@@ -68,6 +68,7 @@ nmap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Highlight lines longer than 80 characters
 "match ErrorMsg '\%>80v.\+'
 
+" use kj as the escape sequence
 inoremap kj <Esc>
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
@@ -88,3 +89,24 @@ set iskeyword+=:
 " Fix jslint.vim error according to
 " https://github.com/hallettj/jslint.vim/issues/13
 let $JS_CMD='node'
+
+" Vim 7.3, now with persistent undo
+" From http://news.ycombinator.com/item?id=2907730
+set undofile
+set undodir=$HOME/.vim_undo,/tmp
+
+" Set the default swap and backup directories
+set directory=$HOME/.vim_swp,/tmp
+set backupdir=$HOME/.vim_backup,/tmp
+
+" Highlight whitespace at the end of a line
+highlight ExtraWhitespace ctermbg=Red guibg=Red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" make sure I'm scrolling visual lines, not real lines
+noremap j gj
+noremap k gk
